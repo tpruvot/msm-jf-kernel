@@ -1412,10 +1412,7 @@ static long msm_ioctl_server(struct file *file, void *fh,
 	case MSM_CAM_IOCTL_V4L2_EVT_NATIVE_CMD:
 		pr_err("%s: MSM_CAM_IOCTL_V4L2_EVT_NATIVE_CMD : %d\n",
 			__func__, _IOC_NR(cmd));
-#if defined(CONFIG_MACH_JACTIVE_ATT) ||  defined(CONFIG_MACH_JACTIVE_EUR)
-#else //not defined
-        sensor_native_control(arg);
-#endif
+		/*sensor_native_control(arg);*/
 		rc = 0;
 		break;
 	case MSM_CAM_IOCTL_V4L2_EVT_NATIVE_FRONT_CMD:

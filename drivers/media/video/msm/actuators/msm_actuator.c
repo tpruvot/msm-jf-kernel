@@ -326,13 +326,12 @@ static int32_t msm_actuator_move_focus(
 
 	return rc;
 }
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR)
+
 extern uint16_t start_dac; /*Pull Pan focus value from FROM*/
-#endif
 static int32_t msm_actuator_init_step_table(struct msm_actuator_ctrl_t *a_ctrl,
 	struct msm_actuator_set_info_t *set_info)
 {
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR) /*New Kernel*/
+#if 1 /*New Kernel*/
   uint16_t i;
   uint16_t code_per_step;
   int16_t start_p, position_pan, num_steps, inf_offset, step_size;
@@ -772,7 +771,7 @@ static struct msm_actuator msm_piezo_actuator_table = {
 		.actuator_parse_i2c_params = msm_actuator_parse_i2c_params,
 	},
 };
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR)
+
 static struct msm_actuator hvca_actuator_table = {
 	.act_type = ACTUATOR_HVCA,
 	.func_tbl = {
@@ -784,7 +783,6 @@ static struct msm_actuator hvca_actuator_table = {
 		.actuator_parse_i2c_params = NULL,
 	},
 };
-#endif
 subsys_initcall(msm_actuator_i2c_add_driver);
 MODULE_DESCRIPTION("MSM ACTUATOR");
 MODULE_LICENSE("GPL v2");

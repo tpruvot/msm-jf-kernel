@@ -1444,12 +1444,10 @@ static struct v4l2_subdev *msm_eeprom_probe(
             D("[%s::eeprom_info] fail!!\n", __func__);
             goto probe_fail;
        }
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR)
 	if (eeprom_info->type == MSM_EEPROM_SPI){
             D("[%s::eeprom_info->type ] fail!!\n", __func__);
             goto probe_fail;
        }
-#endif
 	if (!eeprom_info || !eeprom_info->board_info){
             D("[%s::eeprom_info->board_info] fail!!\n", __func__);
             goto probe_fail;

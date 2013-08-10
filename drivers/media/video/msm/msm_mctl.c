@@ -536,7 +536,7 @@ static int msm_mctl_cmd(struct msm_cam_media_controller *p_mctl,
 				VIDIOC_MSM_AXI_RELEASE, NULL);
 		}
 		break;
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR)
+
     case MSM_CAM_IOCTL_VFE_STATS_VERSION:
 		{
 			uint32_t vfe_ver_num;
@@ -551,7 +551,7 @@ static int msm_mctl_cmd(struct msm_cam_media_controller *p_mctl,
 				VIDIOC_MSM_VFE_STATS_VERSION, &vfe_ver_num);
 		}
 		break;
-#endif
+
 	case MSM_CAM_IOCTL_AXI_LOW_POWER_MODE:
 		if (p_mctl->axi_sdev) {
 			v4l2_set_subdev_hostdata(p_mctl->axi_sdev, p_mctl);
@@ -617,12 +617,12 @@ static int msm_mctl_open(struct msm_cam_media_controller *p_mctl,
 			pr_err("%s: act power failed:%d\n", __func__, rc);
 			goto act_power_up_failed;
 		}
-#if defined(CONFIG_MACH_JACTIVE_ATT) || defined(CONFIG_MACH_JACTIVE_EUR)
+
         if (sinfo->eeprom_info && sinfo->eeprom_info->type ==
             MSM_EEPROM_SPI) {
             msm_mctl_find_eeprom_subdevs(p_mctl);
         }
-#endif
+
 		if (p_mctl->csic_sdev)
 			csi_info.is_csic = 1;
 		else
